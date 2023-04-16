@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up</title>
+    <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/pro1.css'>
+    <link rel="stylesheet" href="{% static 'style3.css' %}">
+</head>
+<body>
+    <a href="" class="logo">
+       
+    </a>
+    <div class="card">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="content">
+            <div class="front">
+                <div class="inner">
+                    <div class="container">
+                        <form class="form" action="">
+                            <h2 class="title">Multiple Dieases Detection</h2>
+                            <div class="form_icons">
+                                <img src="{% static '1.png' %}" alt="" class="form_icon">
+                                <img src="{% static '3.png' %}" alt="" class="form_icon">
+                                <img src="{% static '2.png' %}" alt="" class="form_icon">
+                            </div>
+                            <span>or</span>
+                            <div class="group">
+                                <input type="text" class="form-input" placeholder="Name">
+                                <i class="input-icon uil uil-user"></i>
+                            </div>
+                            <div class="group">
+                                <input type="emial" class="form-input" placeholder="Email">
+                                <i class="input-icon uil uil-at"></i>
+                            </div>
+                            <div class="group">
+                                <input type="password" class="form-input" placeholder="Password">
+                                <i class="input-icon uil uil-lock-alt"></i>
+                            </div>
+                            <button class="button">Sign in</button>
+                            <div class="btn">
+                                Already have an account?
+                                <label for="chk" aria-hidden="true" class="bb"> <span>Log in</span></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="back">
+                    <div class="inner">
+                        <div class="container">
+                            <form class="form" action="">
+                                <h2 class="title">Sign in to Website</h2>
+                                <div class="form_icons">
+                                    <img src="{% static '1.png' %}" alt="" class="form_icon">
+                                    <img src="{% static '3.png' %}" alt="" class="form_icon">
+                                    <img src="{% static '2.png' %}" alt="" class="form_icon">
+                                </div>
+                                <span>or</span>
+                                <div class="group">
+                                    <input type="email" class="form-input" placeholder="Email">
+                                    <i class="input-icon uil uil-at"></i>
+                                </div>
+                                <div class="group">
+                                    <input type="password" class="form-input" placeholder="Password">
+                                    <i class="input-icon uil uil-lock-alt"></i>
+                                </div>
+                                <a href="" class="form_link">Forgot your password?</a>
+                                <button class="button">Log in</button>
+                                <div class="btn">
+                                    Don't have an account?
+                                    <label for="chk" aria-hidden="true" class="bb"><span> Sign up</span></label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

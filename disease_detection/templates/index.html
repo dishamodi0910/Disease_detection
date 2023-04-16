@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>Document</title>
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+.topnav {
+	  background-color:#ffffff;
+
+  position: relative;
+  margin-right: 75%;
+  margin-bottom: 9.5%;
+  
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #ddd;
+  color: white;
+}
+
+        @media screen and (max-width: 768px) {
+    .content {
+        width: 100%;
+    }
+}
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+
+box-sizing: border-box;
+--bgColorMenu : #1d1d27;
+--duration: .7s;    
+
+}
+
+html *,
+html *::before,
+html *::after {
+
+box-sizing: inherit;
+
+}
+
+body{
+
+margin: 0;
+display: flex;
+height: 100vh;
+overflow: hidden;
+align-items: center;
+justify-content: center;
+/* background-color: #ffb457; */
+-webkit-tap-highlight-color: transparent;
+transition: background-color var(--duration);
+
+}
+
+body {
+  /* background : url('{% static "video1.mp4" %}'); */
+  background-image: url('{% static "bg.jpg" %}');
+  background-size: cover;
+  background-position: -20%;
+}
+
+.menu{
+
+margin: 0;
+display: flex;
+/* Works well with 100% width  */
+width: 32.05em;
+font-size: 1.5em;
+padding: 0 2.85em;
+position: relative;
+align-items: center;
+justify-content: center;
+background-color: var(--bgColorMenu);
+
+}
+
+.menu__item{
+
+all: unset;
+flex-grow: 1;
+z-index: 100;
+display: flex;
+cursor: pointer;
+position: relative;
+border-radius: 50%;
+align-items: center;
+will-change: transform;
+justify-content: center;
+padding: 0.55em 0 0.85em;
+transition: transform var(--timeOut , var(--duration));
+
+}
+
+.menu__item::before{
+
+content: "";
+z-index: -1;
+width: 4.2em;
+height: 4.2em;
+border-radius: 50%;
+position: absolute;
+transform: scale(0);
+transition: background-color var(--duration), transform var(--duration);
+
+}
+
+
+.menu__item.active {
+
+transform: translate3d(0, -.8em , 0);
+
+}
+
+.menu__item.active::before{
+
+transform: scale(1);
+background-color: var(--bgColorItem);
+
+}
+
+.icon{
+
+width: 2.6em;
+height: 2.6em;
+stroke: white;
+fill: transparent;
+stroke-width: 1pt;
+stroke-miterlimit: 10;
+stroke-linecap: round;
+stroke-linejoin: round;
+stroke-dasharray: 400;
+
+}
+
+.menu__item.active .icon {
+
+animation: strok 1.5s reverse;
+
+}
+
+@keyframes strok {
+
+100% {
+
+    stroke-dashoffset: 400;
+
+}
+
+}
+
+.menu__border{
+
+left: 0;
+bottom: 99%;
+width: 10.9em;
+height: 2.4em;
+position: absolute;
+clip-path: url(#menu);
+will-change: transform;
+background-color: var(--bgColorMenu);
+transition: transform var(--timeOut , var(--duration));
+
+}
+
+.svg-container {
+
+width: 0;
+height: 0;
+}
+
+
+@media screen and (max-width: 50em) {
+.menu{
+    font-size: .8em;
+}
+}
+
+html,
+body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+}
+
+#myVideo{
+    
+    right:0;
+    bottom:0;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed; 
+    
+}
+
+::selection {
+    color: #fff;
+    background: #1cc7d0;
+}
+
+.wrapper {
+    height: 400px;
+    width: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.wrapper .card {
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    padding: 6px;
+    background: #fff;
+    border-radius: 10px;
+    transform: translateY(0deg);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.wrapper:hover>.front-face {
+    transform: rotateY(-180deg);
+}
+
+.wrapper .card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.wrapper .back-face {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    transform: rotateY(180deg);
+}
+
+.wrapper:hover>.back-face {
+    transform: rotateY(0deg);
+}
+
+.wrapper .back-face img {
+    height: 150px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(375deg, #1cc7d0, #acceed);
+}
+
+.wrapper .back-face .info {
+    text-align: center;
+}
+
+.back-face .info .title {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.back-face ul {
+    display: flex;
+}
+
+.back-face ul a {
+    display: block;
+    height: 40px;
+    width: 40px;
+    color: #fff;
+    text-align: center;
+    margin: 0 5px;
+    line-height: 38px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(375deg, #1cc7d0, #acceed);
+
+    transition: all 0.5s ease;
+}
+
+.back-face ul a:hover {
+    color: #1cc7d0;
+    border-color: #1cc7d0;
+    background: linear-gradient(375deg, transparent, transparent);
+}
+    </style>
+    <title>Home Page</title>
+</head>
+<body>
+    
+
+    <nav class="navbar navbar-dark navbar-expand-sm bg-dark fixed-top">
+        <div class="container">
+        <a href="/" class="navbar-brand">
+        <i class="fas fa-hospital"></i> &nbsp;
+        WeDetect
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a href="" class="nav-link active">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'aboutus' %}" class="nav-link active">
+                    About_Us
+                </a>
+            </li>
+        </ul>
+        </div>
+        <button type="button" class="btn btn-primary"><a href="{% url 'signup_login' %}" style="color: #f2f2f2;">Sign Up</a></button>
+    </div>
+   
+    </nav>
+    <br><br><br><br>
+    <table>
+        <tr>
+            <td>
+    <div class="wrapper">
+        <div class="card front-face">
+            <a href="{% url 'diabetes' %}">
+            <img src="{% static 'dddd.jpeg' %}">
+            </a>
+        </div>
+        <div class="card back-face">
+            <img src="{% static 'ddd.png' %}">
+            <div class="info">
+                <a href="{% url 'diabetes' %}">
+                <div class="title">
+                    Diabetes</div>
+                </a>
+                <br>
+                    <p>
+                    Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high.
+                    </p>
+                    </div>
+            <ul>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </ul>
+        </div>
+    </div>
+                </td>
+                <td>
+    <div class="wrapper">
+        <div class="card front-face">
+            <a href="{% url 'dengue' %}">
+            <img src="{% static 'parkinsion1.jpg' %}">
+            </a>
+        </div>
+        <div class="card back-face">
+            <img src="{% static 'brain.jpg' %}">
+            <div class="info">
+                <a href="{% url 'dengue' %}">
+                <div class="title">
+                    Dengue</div>
+                </a>
+                <br>
+                <p>
+                A brain tumor is a growth of cells in the brain or near it. Brain tumors can happen in the brain tissue.</p>
+            </div>
+            <ul>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </ul>
+        </div>
+    </div>
+</td>
+
+<td>
+    <div class="wrapper">
+        <div class="card front-face">
+            <a href="{% url 'parkinsons' %}">
+            <img src="{% static 'pakin1.jpg' %}">
+            </a>
+        </div>
+        <div class="card back-face">
+            <img src="{% static 'p3.webp' %}">
+            <div class="info">
+                <a href="{% url 'parkinsons' %}">
+                <div class="title">
+                    Parkinson's Disease</div>
+                </a>
+                <br>
+                <p>
+                Parkinson's disease is a progressive disorder that affects the nervous system. </p>
+            </div>
+            <ul>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </ul>
+        </div>
+    </div>
+</td>
+
+<td>
+    <div class="wrapper">
+        <div class="card front-face">
+            <a href="{% url 'heart' %}">
+            <img src="{% static 'heart1.jpg' %}">
+            </a>
+        </div>
+        <div class="card back-face">
+            <img src="{% static 'h1.jpeg' %}">
+            <div class="info">
+                <a href="{% url 'heart' %}">
+                <div class="title">
+                    Heart</div>
+                </a>
+                <br>
+                <p>
+                    Heart disease describes a range of conditions that affect the heart</p>
+            </div>
+            <ul>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </ul>
+        </div>
+    </div>
+</td>
+
+</tr>
+    </table>
+    <br><br><br><br>
+  
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

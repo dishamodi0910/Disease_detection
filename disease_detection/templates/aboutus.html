@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <style>
+
+      /* Add a black background color to the top navigation */
+.topnav {
+	  background-color:#ffffff
+    opacity: 0.8;
+
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #ddd;
+  color: white;
+}
+      
+
+    :root {
+        --theme-color-1: #fff;
+        --theme-color-2: #fff;
+        background-color: #a8e4ef;
+
+        --white-shade-1: #b9d0bf;
+        --white-shade-2: #d0d0d0;
+        --white-rgba: rgba(231, 243, 234, 0.12);
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      
+      body {
+        background-color: var(--bg-color);
+      }
+
+      .container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 45%;
+        left: 50%;
+        perspective: 800px;
+      }
+
+      .container1{
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 45%;
+        left: 20%;
+        perspective: 800px;
+      }
+
+      .container2 {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 45%;
+        left: 80%;
+        perspective: 800px;
+      }
+
+      .container3 {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 45%;
+        left: 70%;
+        perspective: 800px;
+      }
+
+      .container:before {
+        content: "";
+        position: absolute;
+        height: 280px;
+        width: 260px;
+         background: radial-gradient(var(--theme-color-1), var(--theme-color-2));  
+        
+        border-radius: 50%;
+        top: 100%;
+        left: -10%;
+        transform: translate(-50%, -50%);
+      }
+
+      .container1:before {
+        content: "";
+        position: absolute;
+        height: 280px;
+        width: 260px;
+        background: radial-gradient(var(--theme-color-1), var(--theme-color-2));
+        border-radius: 100%;
+        
+        top: 100%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+      }
+
+      .container2:before {
+        content: "";
+        position: absolute;
+        height: 280px;
+        width: 260px;
+        background: radial-gradient(var(--theme-color-1), var(--theme-color-2));
+        border-radius: 50%;
+        top: 100%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+      }
+
+      .container3:before {
+        content: "";
+        position: absolute;
+        height: 280px;
+        width: 260px;
+        background: radial-gradient(var(--theme-color-1), var(--theme-color-2));
+        border-radius: 50%;
+        top: 100%;
+        left: 8%;
+        transform: translate(-50%, -50%);
+      }
+
+      .card {
+        height: 380px;
+        width: 300px;
+        position: relative;
+        left:-60%;
+      }
+      .card1 {
+        height: 380px;
+        width: 300px;
+        position: relative;
+        left:-30%;
+      }
+      .card2 {
+        height: 380px;
+        width: 300px;
+        position: relative;
+        left:30%;
+      }
+      .card3 {
+        height: 380px;
+        width: 300px;
+        position: relative;
+        left:-41%;
+      }
+      .front,
+      .back {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        border-radius: 15px;
+        /* background-color: var(--white-rgba); */
+        border: 2px solid var(--white-rgba);
+        backdrop-filter: blur(8px);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        transition: 1s;
+        box-shadow: 0 20px 40px rgba(16, 8, 8, 0.1);
+      }
+      .front {
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+      }
+      .front img {
+        height: 140px;
+        width: 140px;
+        border-radius: 50%;
+        border: 10px solid var(--white-rgba);
+      }
+      .details {
+        text-align: center;
+      }
+      h2 {
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        color: #333;
+      }
+      span {
+        font-size: 14px;
+        color: #333;
+      }
+      .back {
+        justify-content: space-around;
+        transform: rotateY(180deg);
+      }
+      .icon {
+        display: grid;
+        place-items: center;
+        height: 65px;
+        width: 65px;
+        background-color: #333;
+        font-size: 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--white-shade-1);
+      }
+      .icon:hover {
+        transform: translateY(-10px);
+        background-color: var(--white-shade-1);
+        color: var(--theme-color-1);
+      }
+      .card:hover .back {
+        transform: rotateY(0deg);
+      }
+      .card:hover .front {
+        transform: rotateY(-180deg);
+      }
+
+      .card1:hover .back {
+        transform: rotateY(0deg);
+      }
+      .card1:hover .front {
+        transform: rotateY(-180deg);
+      }
+
+      .card2:hover .back {
+        transform: rotateY(0deg);
+      }
+      .card2:hover .front {
+        transform: rotateY(-180deg);
+      }
+
+      .card3:hover .back {
+        transform: rotateY(0deg);
+      }
+      .card3:hover .front {
+        transform: rotateY(-180deg);
+      }
+      </style>
+  </head>
+  <body>
+    <!-- <div class="topnav">
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+ -->
+
+
+
+ 
+  <main>
+    <section id="home">
+
+    </section>
+    <section id="about">
+
+    </section>
+    <section id="work">
+
+    </section>
+    <section id="contact">
+
+    </section>
+  </main>
+
+
+    <span>
+        <div class="container">
+            <div class="card">
+              <div class="front">
+                <img src="{% static 'disha.jpg' %}">
+                <div class="details">
+                  <h2>Disha Modi</h2>
+                  <span><h3>Developer</h3></span>
+                </div>
+              </div>
+              <div class="back">
+                <a href="#" class="icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+        <div class="container1">
+            <div class="card1">
+              <div class="front">
+                <img src="{% static 'devanshi.jpeg' %}" />
+                <div class="details">
+                  <h2>Devanshi Rupala</h2>
+                  <span><h3>Developer</h3></span>
+                </div>
+              </div>
+              <div class="back">
+                <a href="#" class="icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="container2">
+            <div class="card2">
+              <div class="front">
+                <img src="{% static 'rajal.jpeg' %}" />
+                <div class="details">
+                  <h2>Rajal Marvaniya</h2>
+                  <span><h3>Developer</h3></span>
+                </div>
+              </div>
+              <div class="back">
+                <a href="#" class="icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="container3">
+            <div class="card3">
+              <div class="front">
+                <img src="{% static 'dipali.jpg' %}" />
+                <div class="details">
+                  <h2>Dipali Detroja</h2>
+                  <span><h3>Developer</h3></span>
+                </div>
+              </div>
+              <div class="back">
+                <a href="#" class="icon">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+    
+    </span>
+    
+  </body>
+</html>
